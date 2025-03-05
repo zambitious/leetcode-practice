@@ -1,10 +1,20 @@
-failed_packages = []
+pkgList = []
 
-with open("requirements3.txt", "r", encoding="utf-8") as f:
+with open("test1.txt", "r", encoding="utf-8") as f:
     for line in f:
         pkg = line.strip()
         # 忽略空行和注释
         if not pkg or pkg.startswith("#"):
             continue
+        pkgList.append(pkg)
+print(pkgList)
 
-        print(f"正在安装：{pkg}")
+
+with open("test2.txt", "r", encoding="utf-8") as f:
+    for line in f:
+        pkg = line.strip()
+        if not pkg or pkg.startswith("#"):
+            continue
+        if pkg not in pkgList:
+            pkgList.append(pkg)
+print(pkgList)
